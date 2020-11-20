@@ -1,0 +1,30 @@
+<form [formGroup]="outerForm">
+  Henrik bladde fram til sidene med boligannonser. Leiligheten deres var
+  <div formGroupName="secondFormGroup">
+    <mat-button-toggle-group
+      vertical="false"
+      #group="matButtonToggleGroup"
+      (change)="onGroupChange(group)"
+      multiple="true"
+      formControlName="endpoints"
+      [value]="myFlagForButtonToggle"
+    >
+      <mat-button-toggle *ngFor="let item of options" [value]="item.id"
+        >{{item.text}}</mat-button-toggle
+      >
+    </mat-button-toggle-group>
+  </div>
+  or liten for dem.
+  <br />
+  <br />
+  <br />
+  <br />
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!outerForm.valid"
+  >
+    Submit
+  </button>
+</form>
